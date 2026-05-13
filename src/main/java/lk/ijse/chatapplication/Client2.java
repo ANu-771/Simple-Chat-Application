@@ -47,9 +47,9 @@ public class Client2 {
                 isConnected = true;
 
                 while (isConnected) {
-                    String serverMessage = dataInputStream.readUTF();
+                    String message = dataInputStream.readUTF();
                     javafx.application.Platform.runLater(() -> {
-                        chatArea.appendText(serverMessage + "\n");
+                        chatArea.appendText(message + "\n");
                     });
                 }
 
@@ -80,6 +80,11 @@ public class Client2 {
             try {
                 dataOutputStream.writeUTF(message);
                 dataOutputStream.flush();
+
+                javafx.application.Platform.runLater(() -> {
+                    chatArea.appendText("You: " + message + "\n");
+                });
+
                 messageField.clear();
             } catch (IOException e) {
                 chatArea.appendText("✗ Failed to send message\n");

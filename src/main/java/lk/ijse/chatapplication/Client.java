@@ -81,7 +81,6 @@ public class Client {
                 dataOutputStream.writeUTF(message);
                 dataOutputStream.flush();
 
-                // ✅ NEW: Show "You: message" immediately when sending
                 javafx.application.Platform.runLater(() -> {
                     chatArea.appendText("You: " + message + "\n");
                 });

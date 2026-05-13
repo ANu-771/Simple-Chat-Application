@@ -38,13 +38,12 @@ public class Server {
                 isRunning = true;
 
                 javafx.application.Platform.runLater(() -> {
-                    logArea.appendText("✓ Server Started on port 3000\n");
-                    logArea.appendText("✓ Waiting for clients...\n");
+                    logArea.appendText(" Server Started on port 3000\n");
+                    logArea.appendText(" Waiting for clients...\n");
                     sendButton.setDisable(false);
                     messageField.setDisable(false);
                 });
 
-                // IMPORTANT: Accept multiple clients in a loop
                 while (isRunning) {
                     Socket clientSocket = serverSocket.accept();
 
@@ -55,13 +54,13 @@ public class Server {
 
                     int clientCount = clients.size();
                     javafx.application.Platform.runLater(() -> {
-                        logArea.appendText("✓ New client connected! Total clients: " + clientCount + "\n");
+                        logArea.appendText(" New client connected! Total clients: " + clientCount + "\n");
                     });
                 }
 
             } catch (IOException e) {
                 javafx.application.Platform.runLater(() -> {
-                    logArea.appendText("✗ Error: " + e.getMessage() + "\n");
+                    logArea.appendText(" Error: " + e.getMessage() + "\n");
                 });
             }
         }).start();
