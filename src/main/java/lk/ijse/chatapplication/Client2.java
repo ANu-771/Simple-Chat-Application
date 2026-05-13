@@ -40,7 +40,7 @@ public class Client2 {
                     chatArea.appendText(welcomeMessage + "\n");
                     sendButton.setDisable(false);
                     messageField.setDisable(false);
-                    chatArea.appendText("✓ Connected to group chat!\n");
+                    chatArea.appendText(" Connected to group chat!\n");
                     chatArea.appendText("━━━━━━━━━━━━━━━━━━━━━━\n");
                 });
 

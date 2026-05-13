@@ -40,7 +40,7 @@ public class Client {
                     chatArea.appendText(welcomeMessage + "\n");
                     sendButton.setDisable(false);
                     messageField.setDisable(false);
-                    chatArea.appendText("✓ Connected to group chat!\n");
+                    chatArea.appendText(" Connected to group chat!\n");
                 });
 
                 isConnected = true;
@@ -48,7 +48,6 @@ public class Client {
                 while (isConnected) {
                     String serverMessage = dataInputStream.readUTF();
                     javafx.application.Platform.runLater(() -> {
-                        // ✅ NEW: Show all incoming messages (from server or other clients)
                         chatArea.appendText(serverMessage + "\n");
                     });
                 }
